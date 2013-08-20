@@ -92,9 +92,6 @@ public class ShowTrackActivity extends ListActivity {
 	 */
 	private void handleTrackAction(CharSequence routeName) {
 		
-		
-		
-		
 		String url = "http://testapp.ashoksurya99.cloudbees.net/rest/getRouteInfo/"
 				+ routeName;
 		String[] resluts = processResluts(NetworkUtil.invokeServiceCall(url, true));

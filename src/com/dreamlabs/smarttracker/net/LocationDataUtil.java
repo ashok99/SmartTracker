@@ -61,6 +61,7 @@ public class LocationDataUtil {
 			for (StackTraceElement stackTraceElement : stackTrace) {
 				buffer.append(stackTraceElement.toString());
 			}
+			System.out.println(buffer);
 		}
 	}
 

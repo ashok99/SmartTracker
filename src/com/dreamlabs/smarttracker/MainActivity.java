@@ -17,9 +17,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -32,7 +32,7 @@ import com.dreamlabs.smarttracker.security.DataFireWall;
  *
  */
 public class MainActivity extends Activity {
-	private boolean broadCastStatus;
+	private boolean isBroadcastEnabled;
 	protected LocationManager locationManager;
 	private SensorManager sensorManager;
 	private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
@@ -73,9 +73,10 @@ public class MainActivity extends Activity {
 	}
 
 	private void addBroadcastListener() {
-		ToggleButton tButton = (ToggleButton) findViewById(R.id.broadcast);
+		//ImageButton tButton = (ImageButton) findViewById(R.id.broadcast);
+		
 
-		tButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+		/*tButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
@@ -98,7 +99,33 @@ public class MainActivity extends Activity {
 
 			}
 		});
+*/	
+		
+		final View trackView = findViewById(R.id.broadcast);
+		final ImageButton broadCastBtn = (ImageButton) trackView;
 
+		broadCastBtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (hasPermissions()) {
+					if (!isBroadcastEnabled) {
+						isBroadcastEnabled = true;
+						LocationDataUtil.setCanBroadCast(true);
+						Toast.makeText(getApplicationContext(),
+								"Broadcasting enabled successfully..!!!",
+								Toast.LENGTH_LONG).show();
+					} else {
+						isBroadcastEnabled = false;
+						LocationDataUtil.setCanBroadCast(false);
+						Toast.makeText(getApplicationContext(),
+								"Broadcasting disabled successfully..!!!",
+								Toast.LENGTH_LONG).show();
+					}
+				}     
+			}
+		});
+	
+	
 	}
 
 /*	@Override
@@ -131,7 +158,7 @@ public class MainActivity extends Activity {
 	private void addTrackerListener() {
 
 		final View trackView = findViewById(R.id.track);
-		final Button tButton = (Button) trackView;
+		final ImageButton tButton = (ImageButton) trackView;
 
 		tButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -207,7 +234,7 @@ public class MainActivity extends Activity {
     private class MyLocationListener implements LocationListener {
 
         public void onLocationChanged(Location location) {
-           if(broadCastStatus)
+           if(isBroadcastEnabled)
         	new LocationDataUtil().postToServer(Double.toString(location.getLatitude()), Double.toString(location.getLongitude()) , getApplicationContext());
         }
 
