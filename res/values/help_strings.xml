@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="no_help_available">
+      There is no help available at this time.
+    </string>
+    <string name="about_help_topics">
+      Help is available for each section of this app.
+    </string>
+
+    <string name="help_page_intro">For information on the different parts of this app, touch one of the images below.</string>
+    <string name="help_page_intro_html">
+    <![CDATA[
+      <!-- For information on the different parts of this app, touch one of the images below: -->
+       ]]>
+    </string>
+
+    <string name="help_title_section1">Topics</string>
+    <string name="help_text_section1">
+     <!-- Each help topic has a full page of information. 
+     Long topics can be scrolled. -->
+    </string>
+    <string name="broadcast">
+    <![CDATA[
+      <p><h1>
+      Broadcast:<br>
+        Enabling Broadcast is required to post the location information of the (from your GPS ) to the server.
+        This information (Lattitute and longitude) posted to sever will be used to track/locat the position in maps.</h1>
+        <p><h1>
+         For security and privacy reasons currenly broadcasting is permitted in limited networks only. This means broadcasting can
+	      only be transmitted through Wi-Fi of CA Buses only.
+	      However there is a provision to request a OnDemand network access which allows you to broadcast from other networks also.
+	      Send and email with subject line ON_DEMAND:<YOUR NETWORK SSID>:ROUTE_NO:<ROUTE NO> to ithas01@ca.com to give access
+	      from your own networks.</h1> 
+       </p>
+      
+      ]]>
+    </string>
+
+    <string name="help_title_section2">Html Text</string>
+    <string name="help_text_section2">
+     Learn how to display simple forms of Html in a text view.
+     Paragraphs, bold, italics, and links are supported.
+    </string>
+    <string name="topic_section2">
+    <![CDATA[
+      <p>
+        Track:<br>
+      </p>
+      	<h1>Displays list of all routes available with location information. Select desired location see the current location of the bus.</h1> 
+      <p> 
+       <h1> The selected route will be shown in Google maps. You may change the preference to show all ways your default bus route location in maps</h1>
+      </p>
+      
+        
+       ]]>
+    </string>
+
+
+    <string name="help_title_section3">Links</string>
+    <string name="help_text_section3">
+    <![CDATA[
+	     <p>
+	     	<h1>
+	      		eScort is a feature which helps in emergency to protect women employees of CA. Enable this mode when you want send distress signal in emergency to the security dept. it does not require user to unlock the phone 
+	      		and click on any buttons in emergency but it just activates by shaking your device in a pattern.
+	     	<h1>
+	     <p>
+	     
+	     <p>
+	     	<h1>
+	      		It will automatically send SMS to pre configured contact numbers, send emergency signal to security message central, makes a call to 1 pre configured number and 
+	      		also makes a loud noise to make others aorund you alert about it. 
+	     	<h1>
+	     <p>
+	     
+	     <p>
+	     	<h1>
+	      		Please configure your emergency contact information from settings page. 
+	     	<h1>
+	     <p>
+    ]]>
+    
+    </string>
+    <string name="topic_section3">
+    <![CDATA[
+      Notifications:<br>
+      <p>
+      	You will be subscribed to 1 or more messaging channels(route info channels) to get notified by Facilities/Admin Dept. with emergency
+      	notifications. You will be able to see all the notifications pushed from facilities/Admin/security Dept. from here.
+       </p>
+       
+       <p>
+      	Please use options available in settings to configure your notification channels. You can subscribe to all the channels.
+       </p>
+       ]]>
+    </string>
+
+    <string name="help_title_section4">Buttons</string>
+    <string name="help_text_section4">
+      Image buttons define an image and a label on the screen.
+      Touching an image takes you to the help text for a topic.
+    </string>
+    <string name="topic_section4">
+    <![CDATA[
+      <p>
+      Image buttons define an image and a label on the screen.
+      Touching an image takes you to the help text for a topic.
+      </p>
+      <p> 
+        For each button, you use three images. 
+        One represents the button in its default, unselected state.
+        The other two are used for when the button is selected and pressed.
+        The images and the definition of the button drawable are in the drawable folders in the resource folder.
+        </p>
+      <p> 
+        By the way, the images used in this demo app are left over from an 
+        <a href="http://blahti.wordpress.com/2011/03/14/build-dashboard-ui-for-android/">earlier demo program</a>.
+        For a real app, choose images that are good fit for the help topics.
+        </p>
+      <p><b>Return to the previous screen by touching the Back button.</b>
+        </p>
+       ]]>
+    </string>
+
+</resources>

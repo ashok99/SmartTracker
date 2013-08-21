@@ -20,94 +20,54 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.2" >
 
-            
-                <!--  <ToggleButton
-                android:id="@+id/broadcast"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.3"
-                android:textColor="@android:color/white"
-                android:textOff="Broadcast Off"
-                android:textOn="Broadcast On"
-                android:textSize="10sp"
-                android:textStyle="bold" 
-                android:background="@drawable/ic_broadcast"/> -->
-
-              <ImageButton
-                android:id="@+id/broadcast"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.3"
-                android:src="@drawable/ic_broadcast" />
-
-            <!--
-                 <Button
-                android:id="@+id/track"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Track"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" 
-                android:background="@drawable/ic_track"
-                /> -->
+                android:orientation="horizontal" >
 
-            <ImageButton
-                android:id="@+id/track"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.3"
-                android:src="@drawable/ic_track" />
+                <Button
+                    android:id="@+id/broadcast"
+                    android:layout_width="180dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_broadcast"
+                    android:onClick="onClickHelp"
+                    android:text="Broadcast"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dip"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/track"
+                    android:layout_width="180dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_track"
+                    android:onClick="onClickHelp"
+                     android:text="Track" 
+                     />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dip"
+                    android:text="" />
+            </LinearLayout>
         </TableRow>
-
-        <!--
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1" >
-
-            
-                 <Button
-                android:id="@+id/help"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:text="Help"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" 
-                android:background="@drawable/ic_help"
-                />
-           
-
-            <ImageButton
-                android:id="@+id/imageButton1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:src="@drawable/ic_gaurd" />
-
-            
-                 <Button
-                android:id="@+id/messsage"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:text="Message Center"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" 
-                android:background="@drawable/ic_notifications"
-                />
-           
-
-            <ImageButton
-                android:id="@+id/imageButton1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:src="@drawable/ic_notifications" />
-        </TableRow>       -->
 
         <TableRow
             android:id="@+id/tableRow2"
@@ -115,145 +75,109 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.2" >
 
-            <!--
-                 <ToggleButton
-                android:id="@+id/broadcast"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.3"
-                android:textColor="@android:color/white"
-                android:textOff="Broadcast Off"
-                android:textOn="Broadcast On"
-                android:textSize="30sp"
-                android:textStyle="bold" 
-                android:background="@drawable/ic_broadcast"/>
-            -->
-
-            <ImageButton
-                android:id="@+id/gaurd"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.3"
-                android:src="@drawable/ic_gaurd" />
-
-            <!--
-                 <Button
-                android:id="@+id/track"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Track"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" 
-                android:background="@drawable/ic_track"
-                />          -->
+                android:orientation="horizontal" >
 
-            <ImageButton
-                android:id="@+id/track"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.3"
-                android:src="@drawable/ic_notifications" 
-                />
+                <Button
+                    android:id="@+id/escort"
+                    android:layout_width="180dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_gaurd"
+                    android:onClick="onClickHelp"
+                     android:text="eScort" 
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dip"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/notifications"
+                    android:layout_width="180dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_notifications"
+                    android:onClick="onClickHelp"
+                    android:text="Notifications"
+                     />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dip"
+                    android:text="" />
+            </LinearLayout>
         </TableRow>
 
-        <!--
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1" >
-
-            
-                 <Button
-                android:id="@+id/about"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:background="@drawable/ic_gaurd"
-                 />
-           
-
-            <ImageButton
-                android:id="@+id/imageButton1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:src="@drawable/ic_gaurd" />
-
-            
-                 <Button
-                android:id="@+id/suggestions"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:text="Suggestion Box"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" 
-                android:background="@drawable/ic_track"
-                />
-           
-
-            <ImageButton
-                android:id="@+id/imageButton1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:src="@drawable/ic_track" />
-        </TableRow>        -->
-        
         <TableRow
             android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2" >
 
-            <!--
-                 <ToggleButton
-                android:id="@+id/broadcast"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.3"
-                android:textColor="@android:color/white"
-                android:textOff="Broadcast Off"
-                android:textOn="Broadcast On"
-                android:textSize="30sp"
-                android:textStyle="bold" 
-                android:background="@drawable/ic_broadcast"/> -->
-
-            <ImageButton
-                android:id="@+id/help"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.3"
-                android:src="@drawable/ic_help" />
-
-            <!--
-                 <Button
-                android:id="@+id/track"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Track"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" 
-                android:background="@drawable/ic_track"
-                />
-            -->
+                android:orientation="horizontal" >
 
-            <ImageButton
-                android:id="@+id/notifications"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.3"
-                android:src="@drawable/ic_track" />
+                <Button
+                    android:id="@+id/help"
+                    android:layout_width="180dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_help"
+                    android:onClick="onClickHelp"
+                    android:text="Help"
+                   />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dip"
+                    android:text=""/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/help"
+                    android:layout_width="180dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_broadcast"
+                    android:onClick="onClickHelp"
+                    android:text="About"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dip"
+                   android:text="" />
+            </LinearLayout>
         </TableRow>
-        
-        
     </TableLayout>
 
 </RelativeLayout>

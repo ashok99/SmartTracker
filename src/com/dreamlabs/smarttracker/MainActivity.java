@@ -1,5 +1,6 @@
 package com.dreamlabs.smarttracker;
 
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -17,11 +18,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.dreamlabs.smarttracker.net.LocationDataUtil;
 import com.dreamlabs.smarttracker.security.DataFireWall;
@@ -69,8 +68,11 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		addBroadcastListener();
 		addTrackerListener();
+		addHelpButtonListener();
 		return true;
 	}
+
+	
 
 	private void addBroadcastListener() {
 		//ImageButton tButton = (ImageButton) findViewById(R.id.broadcast);
@@ -102,7 +104,7 @@ public class MainActivity extends Activity {
 */	
 		
 		final View trackView = findViewById(R.id.broadcast);
-		final ImageButton broadCastBtn = (ImageButton) trackView;
+		final Button broadCastBtn = (Button) trackView;
 
 		broadCastBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -158,7 +160,7 @@ public class MainActivity extends Activity {
 	private void addTrackerListener() {
 
 		final View trackView = findViewById(R.id.track);
-		final ImageButton tButton = (ImageButton) trackView;
+		final Button tButton = (Button) trackView;
 
 		tButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -167,6 +169,21 @@ public class MainActivity extends Activity {
 	            startActivity(intent);      
 			}
 		});
+	}
+	
+	
+	private void addHelpButtonListener() {
+		final View trackView = findViewById(R.id.help);
+		final Button tButton = (Button) trackView;
+
+		tButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, HelpActivity.class);
+	            startActivity(intent);      
+			}
+		});
+		
 	}
 	
 	

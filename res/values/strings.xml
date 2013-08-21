@@ -4,5 +4,12 @@
     <string name="app_name">Smart Tracker</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="hello">Hello World, SimpleHelpActivity!</string>
+    
+    <string name="topic_activity_label">Help Topic</string>
+
+    <string name="topic1_name">Hello World, SimpleHelpActivity!</string>
+    <string name="topic1_text">Simple Help</string>
+    
 
 </resources>
