@@ -59,6 +59,10 @@
 
     <string name="help_title_section3">Links</string>
     <string name="help_text_section3">
+        
+    </string>
+    <string name="topic_section3">
+    
     <![CDATA[
 	     <p>
 	     	<h1>
@@ -80,9 +84,14 @@
 	     	<h1>
 	     <p>
     ]]>
-    
+        
     </string>
-    <string name="topic_section3">
+
+    <string name="help_title_section4">Buttons</string>
+    <string name="help_text_section4">
+      
+    </string>
+    <string name="topic_section4">
     <![CDATA[
       Notifications:<br>
       <p>
@@ -95,15 +104,6 @@
        <p>
       <h1>	Please use options available in settings to configure your notification channels. You can subscribe to all the channels.</h1>
        </p>
-       ]]>
-    </string>
-
-    <string name="help_title_section4">Buttons</string>
-    <string name="help_text_section4">
-      
-    </string>
-    <string name="topic_section4">
-    <![CDATA[
        ]]>
     </string>
 
