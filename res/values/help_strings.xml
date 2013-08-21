@@ -86,40 +86,24 @@
     <![CDATA[
       Notifications:<br>
       <p>
+      <h1>
       	You will be subscribed to 1 or more messaging channels(route info channels) to get notified by Facilities/Admin Dept. with emergency
       	notifications. You will be able to see all the notifications pushed from facilities/Admin/security Dept. from here.
+      <h1>
        </p>
        
        <p>
-      	Please use options available in settings to configure your notification channels. You can subscribe to all the channels.
+      <h1>	Please use options available in settings to configure your notification channels. You can subscribe to all the channels.</h1>
        </p>
        ]]>
     </string>
 
     <string name="help_title_section4">Buttons</string>
     <string name="help_text_section4">
-      Image buttons define an image and a label on the screen.
-      Touching an image takes you to the help text for a topic.
+      
     </string>
     <string name="topic_section4">
     <![CDATA[
-      <p>
-      Image buttons define an image and a label on the screen.
-      Touching an image takes you to the help text for a topic.
-      </p>
-      <p> 
-        For each button, you use three images. 
-        One represents the button in its default, unselected state.
-        The other two are used for when the button is selected and pressed.
-        The images and the definition of the button drawable are in the drawable folders in the resource folder.
-        </p>
-      <p> 
-        By the way, the images used in this demo app are left over from an 
-        <a href="http://blahti.wordpress.com/2011/03/14/build-dashboard-ui-for-android/">earlier demo program</a>.
-        For a real app, choose images that are good fit for the help topics.
-        </p>
-      <p><b>Return to the previous screen by touching the Back button.</b>
-        </p>
        ]]>
     </string>
 
