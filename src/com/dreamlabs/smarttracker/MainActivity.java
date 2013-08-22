@@ -19,7 +19,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.dreamlabs.smarttracker.net.LocationDataUtil;
@@ -130,27 +129,6 @@ public class MainActivity extends Activity {
 	
 	}
 
-/*	@Override
-	protected Dialog onCreateDialog(int id) {
-		// Create out AlterDialog
-		Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage("This will end the activity");
-		builder.setCancelable(true);
-		builder.setPositiveButton("I agree", new OkOnClickListener());
-		builder.setNegativeButton("No, no", new CancelOnClickListener());
-		AlertDialog dialog = builder.create();
-		dialog.show();
-		return super.onCreateDialog(id);
-	}
-
-	private final class CancelOnClickListener implements
-			DialogInterface.OnClickListener {
-		public void onClick(DialogInterface dialog, int which) {
-			Toast.makeText(getApplicationContext(), "Activity will continue",
-					Toast.LENGTH_LONG).show();
-		}
-	}
-*/
 	private final class OkOnClickListener implements
 			DialogInterface.OnClickListener {
 		public void onClick(DialogInterface dialog, int which) {
@@ -186,10 +164,6 @@ public class MainActivity extends Activity {
 		
 	}
 	
-	
-	//MapActivity
-
-	
 	private boolean hasPermissions() {
 		boolean broadCastStatus = true;
 		try {
@@ -210,23 +184,6 @@ public class MainActivity extends Activity {
 		return broadCastStatus;
 	}
 	
-	
-	/*private final BroadcastReceiver lftBroadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            // extract the location info in the broadcast
-        	currentGPSLocation = (LocationInfo) intent.getSerializableExtra(LocationLibraryConstants.LOCATION_BROADCAST_EXTRA_LOCATIONINFO);
-        	
-        	 if (currentGPSLocation.anyLocationDataReceived()) {
-                 if (currentGPSLocation.hasLatestDataBeenBroadcast()) {
-                	 new LocationDataUtil().postToServer(Float.toString(currentGPSLocation.lastLat), Float.toString(currentGPSLocation.lastLong) , getApplicationContext());
-                 }
-             }
-        }
-
-    };*/
-    
-    
     @Override
     public void onResume() {
         super.onResume();
