@@ -25,9 +25,10 @@ public class NetworkUtil {
 	public static String invokeServiceCall(String url, boolean isResponseRequired) {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpContext localContext = new BasicHttpContext();
-
+		
 		HttpGet httpGet = new HttpGet(url);
 		String text = "";
+		
 		try {
 			HttpResponse response = httpClient.execute(httpGet, localContext);
 			HttpEntity entity = response.getEntity();
@@ -37,9 +38,6 @@ public class NetworkUtil {
 
 		} catch (Exception e) {
 			int a;
-			if(true) {
-				a =100;
-			}
 			/*StackTraceElement[] stackTrace = e.getStackTrace();
 			StringBuffer buffer = new StringBuffer();
 			for (StackTraceElement stackTraceElement : stackTrace) {
@@ -62,7 +60,4 @@ public class NetworkUtil {
 		}
 		return out.toString();
 	}
-	
-	
-	
 }

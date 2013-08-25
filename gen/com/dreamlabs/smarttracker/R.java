@@ -28,39 +28,49 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int background=0x7f020000;
-        public static final int border=0x7f020001;
-        public static final int buttonone=0x7f020002;
-        public static final int buttonthree=0x7f020003;
-        public static final int buttontwo=0x7f020004;
-        public static final int ic_broadcast=0x7f020005;
-        public static final int ic_gaurd=0x7f020006;
-        public static final int ic_help=0x7f020007;
-        public static final int ic_launcher=0x7f020008;
-        public static final int ic_notifications=0x7f020009;
-        public static final int ic_track=0x7f02000a;
-        public static final int icon_broadcast=0x7f02000b;
-        public static final int roundedbutton=0x7f02000c;
-        public static final int splash_1=0x7f02000d;
+        public static final int about=0x7f020000;
+        public static final int background=0x7f020001;
+        public static final int boot_splash=0x7f020002;
+        public static final int border=0x7f020003;
+        public static final int buttonone=0x7f020004;
+        public static final int buttonthree=0x7f020005;
+        public static final int buttontwo=0x7f020006;
+        public static final int calog_trans=0x7f020007;
+        public static final int calogo=0x7f020008;
+        public static final int ic_about=0x7f020009;
+        public static final int ic_broadcast=0x7f02000a;
+        public static final int ic_gaurd=0x7f02000b;
+        public static final int ic_help=0x7f02000c;
+        public static final int ic_launcher=0x7f02000d;
+        public static final int ic_notifications=0x7f02000e;
+        public static final int ic_track=0x7f02000f;
+        public static final int icon_broadcast=0x7f020010;
+        public static final int roundedbutton=0x7f020011;
+        public static final int splash_1=0x7f020012;
+        public static final int webicon=0x7f020013;
     }
     public static final class id {
-        public static final int ScrollView01=0x7f09000f;
-        public static final int ScrollView1=0x7f090009;
-        public static final int action_settings=0x7f090011;
+        public static final int ScrollView01=0x7f090013;
+        public static final int ScrollView1=0x7f09000d;
+        public static final int about=0x7f090009;
+        public static final int action_settings=0x7f090015;
         public static final int broadcast=0x7f090002;
         public static final int escort=0x7f090005;
         public static final int help=0x7f090008;
-        public static final int help_button1=0x7f09000b;
-        public static final int help_button2=0x7f09000c;
-        public static final int help_button3=0x7f09000d;
-        public static final int help_button4=0x7f09000e;
-        public static final int help_page_intro=0x7f09000a;
+        public static final int help_button1=0x7f09000f;
+        public static final int help_button2=0x7f090010;
+        public static final int help_button3=0x7f090011;
+        public static final int help_button4=0x7f090012;
+        public static final int help_page_intro=0x7f09000e;
+        public static final int imageView1=0x7f09000c;
         public static final int notifications=0x7f090006;
+        public static final int progressBar1=0x7f09000a;
         public static final int tableLayout1=0x7f090000;
         public static final int tableRow1=0x7f090001;
         public static final int tableRow2=0x7f090004;
         public static final int tableRow3=0x7f090007;
-        public static final int topic_text=0x7f090010;
+        public static final int textView2=0x7f09000b;
+        public static final int topic_text=0x7f090014;
         public static final int track=0x7f090003;
     }
     public static final class layout {
@@ -83,8 +93,10 @@ public final class R {
         public static final int hello_world=0x7f060012;
         public static final int help_page_intro=0x7f060002;
         public static final int help_page_intro_html=0x7f060003;
-        /**  Each help topic has a full page of information. 
-     Long topics can be scrolled. 
+        /** 
+     Each help topic has a full page of information. 
+     Long topics can be scrolled.
+        
          */
         public static final int help_text_section1=0x7f060005;
         public static final int help_text_section2=0x7f060008;
@@ -129,5 +141,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        public static final int NewDialog=0x7f070002;
     }
 }

@@ -1,49 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="no_help_available">
-      There is no help available at this time.
-    </string>
-    <string name="about_help_topics">
-      Help is available for each section of this app.
-    </string>
-
+    <string name="no_help_available">      There is no help available at this time.</string>
+    <string name="about_help_topics">      Help is available for each section of this app.</string>
     <string name="help_page_intro">For information on the different parts of this app, touch one of the images below.</string>
     <string name="help_page_intro_html">
-    <![CDATA[
-      <!-- For information on the different parts of this app, touch one of the images below: -->
+<![CDATA[
+       <!-- For information on the different parts of this app, touch one of the images below: --> 
        ]]>
     </string>
-
     <string name="help_title_section1">Topics</string>
     <string name="help_text_section1">
-     <!-- Each help topic has a full page of information. 
-     Long topics can be scrolled. -->
+        <!--
+     Each help topic has a full page of information. 
+     Long topics can be scrolled.
+        -->
     </string>
     <string name="broadcast">
-    <![CDATA[
-      <p><h1>
-      Broadcast:<br>
-        Enabling Broadcast is required to post the location information of the (from your GPS ) to the server.
-        This information (Lattitute and longitude) posted to sever will be used to track/locat the position in maps.</h1>
-        <p><h1>
-         For security and privacy reasons currenly broadcasting is permitted in limited networks only. This means broadcasting can
-	      only be transmitted through Wi-Fi of CA Buses only.
-	      However there is a provision to request a OnDemand network access which allows you to broadcast from other networks also.
-	      Send and email with subject line ON_DEMAND:<YOUR NETWORK SSID>:ROUTE_NO:<ROUTE NO> to ithas01@ca.com to give access
-	      from your own networks.</h1> 
-       </p>
+<![CDATA[
+     <HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.6  (Linux)">
+	<META NAME="AUTHOR" CONTENT="CA, Inc.">
+	<META NAME="CREATED" CONTENT="20130823;20330000">
+	<META NAME="CHANGEDBY" CONTENT="CA, Inc.">
+	<META NAME="CHANGED" CONTENT="20130823;20330000">
+	<META NAME="AppVersion" CONTENT="14.0000">
+	<META NAME="Company" CONTENT="CA Technologies">
+	<META NAME="DocSecurity" CONTENT="0">
+	<META NAME="HyperlinksChanged" CONTENT="false">
+	<META NAME="LinksUpToDate" CONTENT="false">
+	<META NAME="ScaleCrop" CONTENT="false">
+	<META NAME="ShareDoc" CONTENT="false">
+	<STYLE TYPE="text/css">
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" DIR="LTR">
+<H1 CLASS="western" ALIGN=CENTER>CA Smart Tracker 1.0 Online Help</H1>
+<P STYLE="margin-bottom: 0.14in"><BR><BR>
+</P>
+<H2 CLASS="western">About CA Smart Tracker 1.0</H2>
+<P>CA Smart Tracker 1.0 is a tracking, notifying and alerting
+software that can be used by the CA bus commuters who own Android
+devices. It works in a collaborative way, where all the commuters who
+use this product form a community. It enables all the CA bus
+commuters to:</P>
+<UL>
+	<LI><P>Broadcast the location of their buses.</P>
+	<LI><P>Track the locations of all their buses. 
+	</P>
+	<LI><P>Receive administrative notifications from the CA facilities.</P>
+	<LI><P>Send alerts to concerned members against an imminent danger.<!-- How about mentioning ‘this is intended primarily by women employees? 
+ --></P>
+</UL>
+<P><B>Note: </B>CA<B> </B>Smart Tracker 1.0 runs only on Android
+devices with OS version 4.2.x or higher. The devices must have Wi-Fi
+and internet connectivity<!-- Requires Internet either though Wi-Fi or Mobile data
+ -->.</P>
+<H2 CLASS="western">How it Works?</H2>
+<P STYLE="margin-bottom: 0.14in">CA Smart Tracker 1.0 consists of a
+client application called Smart Tracker. You must install this
+application on your Android device. When you install the Smart
+Tracker you become a member of the Smart Tracker community. After
+installing the Smart Tracker, you can broadcast, track; send
+notifications and alerts for all the commuters.<!-- Sending notifications is not supported right?
+ 
+ --></P>
+<P STYLE="margin-bottom: 0.14in">Before starting the Smart Tracker
+you must connect to the Wi-Fi device in your CA bus. Your device
+sends its location coordinates and the route details through the
+Wi-Fi to the Smart Tracker Server (STS). The STS runs in the public
+domain. When you enable the “Broadcast” feature on the Smart
+tracker, your device starts posting its location coordinates to the
+STS periodically. A commuter who wants to track the location of your
+bus uses the “Track” feature to track. The Track feature polls
+the STS through the internet to obtain the location of your bus.</P>
+<P STYLE="margin-bottom: 0.14in"><B>Note: </B>Members of the Smart
+Tracker community must enable the broadcast feature on their devices.
+At least one Smart Tracker member must enable the Broadcast feature
+to enable a commuter to track a bus. 
+</P>
+<H2 CLASS="western">Features</H2>
+<P STYLE="margin-bottom: 0.14in">When you start the Smart Tracker, it
+displays the following four features on the screen of your device.</P>
+<H3 CLASS="western">Broadcast</H3>
+<P STYLE="margin-bottom: 0.14in">Click Broadcast to start
+broadcasting the location of your bus. It is a toggle UI button,
+first click enables the Broadcast feature and second click disables
+it.</P>
+<P STYLE="margin-bottom: 0.14in">Each broadcast enabled device sends
+its location details in the &lt;Latitude&gt;&lt;Longitude&gt;&lt;Route#&gt;
+format to the STS. As a result, when commuters start broadcasting in
+their CA bus, Smart Tracker members can detect the location of their
+respective CA Route buses.</P>
+<P STYLE="margin-bottom: 0.14in"><B>Note:</B> When more than one
+member broadcasts, the tracking commuter gets the latest coordinates.
+</P>
+<H3 CLASS="western">Track</H3>
+<P STYLE="margin-bottom: 0.14in"><A NAME="_GoBack"></A>Click Track to
+track of your CA bus. When you click Track, a list of all the bus
+route numbers is displayed. Select your Route bus to find its
+location. The location of your route bus is shown in the Google map. 
+</P>
+<P STYLE="margin-bottom: 0.14in"><B>Note:</B> If you want to track
+your route bus, at least one member traveling in your route bus must
+enable the broadcast feature. In case nobody traveling in your route
+bus broadcasts, you will not see your route bus in the track list. 
+</P>
+<H3 CLASS="western">Escort<!-- Looks like we need to rephrase this a little.
+We’ll discuss this
+ --></H3>
+<P STYLE="margin-bottom: 0.14in">Click Escort to send an alert
+message to a configured destination when you are expecting an
+imminent danger. It is a toggle UI button, first click enables the
+Escort feature and second click disables it. This feature enables
+female commuters to send an alert message, and also post their
+location for tracking purpose.</P>
+<P STYLE="margin-bottom: 0.14in">Enable the Escort feature while
+traveling, and shake your device in suspicious circumstances. Once
+you shake your device an alert message is sent to the configured
+destination.</P>
+<H3 CLASS="western">Notifications<!-- As discussed there are more to talk about this feature but I think that comes in different section
+
+ --></H3>
+<P STYLE="margin-bottom: 0.14in">Click Notifications to see any
+notifications that are sent to you by the CA facilities.</P>
+<DIV TYPE=FOOTER>
+	<P ALIGN=RIGHT STYLE="margin-top: 0.92in; margin-bottom: 0in; line-height: 100%">
+	1.0</P>
+</DIV>
+</BODY>
+</HTML>
       
       ]]>
     </string>
-
     <string name="help_title_section2">Html Text</string>
-    <string name="help_text_section2">
-     Learn how to display simple forms of Html in a text view.
-     Paragraphs, bold, italics, and links are supported.
-    </string>
+    <string name="help_text_section2">     Learn how to display simple forms of Html in a text view.
+     Paragraphs, bold, italics, and links are supported.</string>
     <string name="topic_section2">
-    <![CDATA[
+<![CDATA[
       <p>
         Track:<br>
       </p>
@@ -55,20 +152,15 @@
         
        ]]>
     </string>
-
-
     <string name="help_title_section3">Links</string>
-    <string name="help_text_section3">
-        
-    </string>
+    <string name="help_text_section3"></string>
     <string name="topic_section3">
-    
-    <![CDATA[
+<![CDATA[
 	     <p>
 	     	<h1>
 	      		eScort is a feature which helps in emergency to protect women employees of CA. Enable this mode when you want send distress signal in emergency to the security dept. it does not require user to unlock the phone 
 	      		and click on any buttons in emergency but it just activates by shaking your device in a pattern.
-	     	<h1>
+	     	</h1>
 	     <p>
 	     
 	     <p>
@@ -84,15 +176,11 @@
 	     	<h1>
 	     <p>
     ]]>
-        
     </string>
-
     <string name="help_title_section4">Buttons</string>
-    <string name="help_text_section4">
-      
-    </string>
+    <string name="help_text_section4"></string>
     <string name="topic_section4">
-    <![CDATA[
+<![CDATA[
       Notifications:<br>
       <p>
       <h1>

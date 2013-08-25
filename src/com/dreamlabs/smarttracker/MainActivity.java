@@ -14,6 +14,8 @@ import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.AudioManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -22,6 +24,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.dreamlabs.smarttracker.net.LocationDataUtil;
+import com.dreamlabs.smarttracker.persistence.DBManager;
 import com.dreamlabs.smarttracker.security.DataFireWall;
 
 /**
@@ -42,6 +45,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		DataFireWall.getNetworkName(getApplicationContext());//Just to initialize the network name SSID handy by the time broadcast receives the data
 		
 		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -74,36 +78,8 @@ public class MainActivity extends Activity {
 	
 
 	private void addBroadcastListener() {
-		//ImageButton tButton = (ImageButton) findViewById(R.id.broadcast);
-		
-
-		/*tButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-
-				if (hasPermissions()) {
-					if (isChecked) {
-						broadCastStatus = true;
-						LocationDataUtil.setCanBroadCast(true);
-						Toast.makeText(getApplicationContext(),
-								"Broadcasting enabled successfully..!!!",
-								Toast.LENGTH_LONG).show();
-					} else {
-						broadCastStatus = false;
-						LocationDataUtil.setCanBroadCast(false);
-						Toast.makeText(getApplicationContext(),
-								"Broadcasting disabled successfully..!!!",
-								Toast.LENGTH_LONG).show();
-					}
-				}
-
-			}
-		});
-*/	
-		
-		final View trackView = findViewById(R.id.broadcast);
-		final Button broadCastBtn = (Button) trackView;
+		final View broadCastView = findViewById(R.id.broadcast);
+		final Button broadCastBtn = (Button) broadCastView;
 
 		broadCastBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -151,8 +127,8 @@ public class MainActivity extends Activity {
 	
 	
 	private void addHelpButtonListener() {
-		final View trackView = findViewById(R.id.help);
-		final Button tButton = (Button) trackView;
+		final View helpView = findViewById(R.id.help);
+		final Button tButton = (Button) helpView;
 
 		tButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -268,6 +244,13 @@ public class MainActivity extends Activity {
 				        Log.d("sensor", "shake detected w/ speed: " + speed);
 				        Toast.makeText(getApplicationContext(),
 								"shake detected w/ speed: " + speed, Toast.LENGTH_SHORT).show();
+				        AudioManager audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+						audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+						audioManager.setSpeakerphoneOn(true);
+						
+						Intent callIntent = new Intent(Intent.ACTION_CALL);
+						callIntent.setData(Uri.parse("tel:0377778888"));
+						startActivity(callIntent);
 				        
 				      }
 				      last_x = x;

@@ -19,7 +19,7 @@
         android:id="@+id/help_page_intro"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content" 
-        android:text="Help - Smart Tracker"
+        android:text="@string/about_help_topics"
         android:padding="2dip"
         android:layout_weight="1"
            />

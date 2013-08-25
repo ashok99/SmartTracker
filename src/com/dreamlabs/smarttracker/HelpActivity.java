@@ -3,7 +3,10 @@ package com.dreamlabs.smarttracker;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -31,6 +34,10 @@ protected void onCreate(Bundle savedInstanceState)
 {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.help);
+    
+    TextView textView = (TextView) findViewById (R.id.help_page_intro);
+    textView.setMovementMethod (LinkMovementMethod.getInstance());
+    textView.setText (Html.fromHtml (getString (R.string.broadcast)));
 
     // Set up so that formatted text can be in the help_page_intro text and so that html links are handled.
    /* TextView textView = (TextView) findViewById (R.id.help_page_intro);
