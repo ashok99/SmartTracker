@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="no_help_available">      There is no help available at this time.</string>
-    <string name="about_help_topics">      Help is available for each section of this app.</string>
-    <string name="help_page_intro">For information on the different parts of this app, touch one of the images below.</string>
-    <string name="help_page_intro_html">
+    <string name="no_help_available" translatable="false">      There is no help available at this time.</string>
+    <string name="about_help_topics" translatable="false">      Help is available for each section of this app.</string>
+    <string name="help_page_intro" translatable="false"> For information on the different parts of this app, touch one of the images below. </string>
+    <string name="help_page_intro_html" translatable="false">
 <![CDATA[
        <!-- For information on the different parts of this app, touch one of the images below: --> 
        ]]>
     </string>
-    <string name="help_title_section1">Topics</string>
-    <string name="help_text_section1">
+    <string name="help_title_section1" translatable="false">Topics</string>
+    <string name="help_text_section1" translatable="false">
         <!--
      Each help topic has a full page of information. 
      Long topics can be scrolled.
         -->
     </string>
-    <string name="broadcast">
+    <string name="broadcast" translatable="false">
 <![CDATA[
      <HTML>
 <HEAD>
@@ -136,10 +136,10 @@ notifications that are sent to you by the CA facilities.</P>
       
       ]]>
     </string>
-    <string name="help_title_section2">Html Text</string>
-    <string name="help_text_section2">     Learn how to display simple forms of Html in a text view.
+    <string name="help_title_section2" translatable="false">Html Text</string>
+    <string name="help_text_section2" translatable="false">     Learn how to display simple forms of Html in a text view.
      Paragraphs, bold, italics, and links are supported.</string>
-    <string name="topic_section2">
+    <string name="topic_section2" translatable="false">
 <![CDATA[
       <p>
         Track:<br>
@@ -152,9 +152,9 @@ notifications that are sent to you by the CA facilities.</P>
         
        ]]>
     </string>
-    <string name="help_title_section3">Links</string>
-    <string name="help_text_section3"></string>
-    <string name="topic_section3">
+    <string name="help_title_section3" translatable="false">Links</string>
+    <string name="help_text_section3" translatable="false"></string>
+    <string name="topic_section3" translatable="false">
 <![CDATA[
 	     <p>
 	     	<h1>
@@ -177,9 +177,9 @@ notifications that are sent to you by the CA facilities.</P>
 	     <p>
     ]]>
     </string>
-    <string name="help_title_section4">Buttons</string>
-    <string name="help_text_section4"></string>
-    <string name="topic_section4">
+    <string name="help_title_section4" translatable="false">Buttons</string>
+    <string name="help_text_section4" translatable="false"></string>
+    <string name="topic_section4" translatable="false">
 <![CDATA[
       Notifications:<br>
       <p>

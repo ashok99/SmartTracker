@@ -1,5 +1,6 @@
 package com.dreamlabs.smarttracker.net;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -37,35 +38,34 @@ public class LocationDataUtil {
 				+ "/"
 				+ DataFireWall.getNetworkName(applicationContext)
 				+ "/ithas01/"
-				+  System.currentTimeMillis();
-		
-		//http://testapp.ashoksurya99.cloudbees.net/rest/updateLocation/78.47239448523523/17.40783897192094/route-4/ithas01/12PM
+				+ System.currentTimeMillis();
+
+		// http://testapp.ashoksurya99.cloudbees.net/rest/updateLocation/78.47239448523523/17.40783897192094/route-4/ithas01/12PM
 		new LongRunningGetIO(url).execute();
 
-		/*HttpClient httpClient = new DefaultHttpClient();
-		HttpContext localContext = new BasicHttpContext();
-
-		HttpGet httpGet = new HttpGet(url);
-		try {
-			HttpResponse response = httpClient.execute(httpGet, localContext);
-			
-			 * HttpEntity entity = response.getEntity(); text =
-			 * getASCIIContentFromEntity(entity);
-			 * Toast.makeText(getApplicationContext(), "Final Result..." ,
-			 * Toast.LENGTH_LONG).show();
-			 
-		} catch (Exception e) {
-			StackTraceElement[] stackTrace = e.getStackTrace();
-			StringBuffer buffer = new StringBuffer();
-			for (StackTraceElement stackTraceElement : stackTrace) {
-				buffer.append(stackTraceElement.toString());
-			}
-			System.out.println(buffer);
-		}*/
+		/*
+		 * HttpClient httpClient = new DefaultHttpClient(); HttpContext
+		 * localContext = new BasicHttpContext();
+		 * 
+		 * HttpGet httpGet = new HttpGet(url); try { HttpResponse response =
+		 * httpClient.execute(httpGet, localContext);
+		 * 
+		 * HttpEntity entity = response.getEntity(); text =
+		 * getASCIIContentFromEntity(entity);
+		 * Toast.makeText(getApplicationContext(), "Final Result..." ,
+		 * Toast.LENGTH_LONG).show();
+		 * 
+		 * } catch (Exception e) { StackTraceElement[] stackTrace =
+		 * e.getStackTrace(); StringBuffer buffer = new StringBuffer(); for
+		 * (StackTraceElement stackTraceElement : stackTrace) {
+		 * buffer.append(stackTraceElement.toString()); }
+		 * System.out.println(buffer); }
+		 */
 	}
 
 	private class LongRunningGetIO extends AsyncTask<Void, Void, String> {
 		String url;
+		String result;
 
 		LongRunningGetIO(String uri) {
 			this.url = uri;
@@ -76,17 +76,22 @@ public class LocationDataUtil {
 			HttpClient httpClient = new DefaultHttpClient();
 			HttpContext localContext = new BasicHttpContext();
 			HttpGet httpGet = new HttpGet(url);
-			String text = null;
+			HttpResponse response = null;
 			try {
-					httpClient.execute(httpGet,	localContext);
+					response = httpClient.execute(httpGet, localContext);
+				
 			} catch (Exception e) {
 				StackTraceElement[] stackTrace = e.getStackTrace();
 				StringBuffer buffer = new StringBuffer();
 				for (StackTraceElement stackTraceElement : stackTrace) {
 					buffer.append(stackTraceElement.toString());
 				}
+				buffer.append("Error:");
+				result = buffer.toString();
 			}
-			return text;
+			if (response != null)
+				result = response.toString();
+			return result;
 		}
 
 		protected void onPostExecute(String results) {

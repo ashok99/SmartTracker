@@ -9,6 +9,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
+    <!--
+         <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    -->
+
     <TableLayout
         android:id="@+id/tableLayout1"
         android:layout_width="fill_parent"
@@ -32,8 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableTop="@drawable/ic_broadcast"
-                    android:text="Broadcast"
-                    />
+                    android:text="Broadcast" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,8 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableTop="@drawable/ic_track"
-                     android:text="Track" 
-                     />
+                    android:text="Track" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -85,8 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableTop="@drawable/ic_gaurd"
-                     android:text="eScort" 
-                    />
+                    android:text="eScort" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -108,8 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableTop="@drawable/ic_notifications"
-                    android:text="Notifications"
-                     />
+                    android:text="Notifications" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,18 +142,17 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableTop="@drawable/ic_help"
-                    android:text="Help"
-                   />
+                    android:text="Help" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="8dip"
-                    android:text=""/>
+                    android:text="" />
             </LinearLayout>
 
-             <LinearLayout
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -161,17 +164,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableTop="@drawable/ic_broadcast"
-                    android:text="About"
-                   />
+                    android:text="About" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="8dip"
-                    android:text=""/>
+                    android:text="" />
             </LinearLayout>
-            
         </TableRow>
     </TableLayout>
 

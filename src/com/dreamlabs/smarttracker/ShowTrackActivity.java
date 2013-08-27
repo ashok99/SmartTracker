@@ -5,7 +5,6 @@ import android.app.AlertDialog.Builder;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,8 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dreamlabs.smarttracker.net.NetworkUtil;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.LatLng;
 
 /**
  * 
@@ -26,22 +23,17 @@ import com.google.android.gms.maps.model.LatLng;
  */
 public class ShowTrackActivity extends ListActivity {
 
-	GoogleMap googleMap;
-	String currentLat;
-	String currentLong;
+	static String currentLat;
+	static String currentLong;
+	static String currentLoc;
+	static String timeStamp;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		String routes[] = getAllLiveTracks();
 
-		if (routes != null && routes.length > 0) {
-			// FIXME if there are no broacaster availble then it still shows
-			// empty in list veiew and
-			/*
-			 * if(routes.length==1) System.out.println("");
-			 */
-
+		if (routes != null && routes.length > 0 && !routes[0].contains("ERROR")) {
 			setListAdapter(new ArrayAdapter<String>(this,
 					R.layout.available_for_track, routes));
 
@@ -60,10 +52,10 @@ public class ShowTrackActivity extends ListActivity {
 			});
 		} else {
 			Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage("Aahh! No routes are currently being tracked. How about reminding your buddy to broadcast? ");
+			builder.setMessage("Aahh! No routes are currently being tracked. How about reminding your buddy to broadcast? Colud be a network issue too...");
 			// builder.setCancelable(true);
 			builder.setPositiveButton("Cool.. Lemme just do it now",
-					new OkOnClickListener());
+					new OkOnClickListenerDoNothing());
 			AlertDialog dialog = builder.create();
 			dialog.show();
 		}
@@ -72,16 +64,33 @@ public class ShowTrackActivity extends ListActivity {
 	private final class OkOnClickListener implements
 			DialogInterface.OnClickListener {
 		public void onClick(DialogInterface dialog, int which) {
-			Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:"
-					+ currentLat + "," + currentLong + ";crs=moon-2011;u=35"));
+			showMap();
+		}
+	}
+	
+	
+	private final class OkOnClickListenerDoNothing implements
+			DialogInterface.OnClickListener {
+		public void onClick(DialogInterface dialog, int which) {
+			Intent intent = new Intent(ShowTrackActivity.this, MainActivity.class);
 			startActivity(intent);
 		}
 	}
 
 	private String[] getAllLiveTracks() {
-		String routes = null;
+		String routes = "";
 		String url = "http://testapp.ashoksurya99.cloudbees.net/rest/getRouteInfo/";
 		String liveRoutes = NetworkUtil.invokeServiceCall(url, true);
+		if(liveRoutes.contains("ERROR")) {
+			Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage("Grrr! Error while retieveing bus locations. How about quick check on your network connection?");
+			// builder.setCancelable(true);
+			builder.setPositiveButton("Cool.. Lemme just check",
+					new OkOnClickListenerDoNothing());
+			AlertDialog dialog = builder.create();
+			dialog.show();
+		} 
+		
 		if (liveRoutes != null && !liveRoutes.isEmpty()) {
 			routes = liveRoutes.trim();
 		}
@@ -95,7 +104,7 @@ public class ShowTrackActivity extends ListActivity {
 	 * @param routeName
 	 */
 	private void handleTrackAction(CharSequence routeName) {
-
+		currentLoc = (String) routeName;
 		String url = "http://testapp.ashoksurya99.cloudbees.net/rest/getRouteInfo/"
 				+ routeName;
 		String[] resluts = processResluts(NetworkUtil.invokeServiceCall(url,
@@ -109,31 +118,45 @@ public class ShowTrackActivity extends ListActivity {
 			long lastUpdatedTime = Long.parseLong(resluts[2]);
 			long diffInMinutes = (System.currentTimeMillis() - lastUpdatedTime)
 					/ (1000 * 60);
-
+			timeStamp = diffInMinutes + " mins before";
+			currentLat = resluts[0];
+			currentLong = resluts[1];
 			if (diffInMinutes > 10) {
 				Builder builder = new AlertDialog.Builder(this);
 				builder.setMessage("Smells stale! The location info is 10 minutes older");
 				//builder.setCancelable(true);
 				builder.setPositiveButton("Fine. Let me see anyways",
 						new OkOnClickListener());
-				currentLat = resluts[0];
-				currentLong = resluts[1];
 				AlertDialog dialog = builder.create();
 				dialog.show();
 			} else {
 				if (resluts != null) {
-					Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:"
+					/*Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:"
 							+ resluts[0] + "," + resluts[1] + ";crs=moon-2011;u=35"));
-					startActivity(intent);
+					startActivity(intent);*/
+					showMap();
 				}
 			}
 		}
-
 		
 	}
 
+	private void showMap() {
+		if(currentLat == null || currentLat == null) {
+			Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage("oops! something went wrong. play again");
+			//builder.setCancelable(true);
+			builder.setPositiveButton("Fine. Let me see anyways",
+					new OkOnClickListenerDoNothing());
+			AlertDialog dialog = builder.create();
+			dialog.show();
+		} else {
+			Intent intent = new Intent(ShowTrackActivity.this, GMapsActivity.class);
+			startActivity(intent);
+		}
+	}
+
 	/**
-	 * This is very bad logic to extract the results... live with it for a while
 	 * 
 	 * @param inputText
 	 * @return

@@ -37,12 +37,14 @@ public class NetworkUtil {
 			}
 
 		} catch (Exception e) {
-			int a;
-			/*StackTraceElement[] stackTrace = e.getStackTrace();
+			StackTraceElement[] stackTrace = e.getStackTrace();
 			StringBuffer buffer = new StringBuffer();
 			for (StackTraceElement stackTraceElement : stackTrace) {
 				buffer.append(stackTraceElement.toString());
-			}*/
+			}
+			buffer.append("ERROR:");
+			if(buffer!=null && buffer.length() >0)
+				text = buffer.toString();
 		}
 		return text;
 	}
