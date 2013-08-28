@@ -12,6 +12,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.maps.MapActivity;
 
 @SuppressLint("NewApi")
+/**
+ * 
+ * @author ashok
+ *
+ */
 public class GMapsActivity extends MapActivity {
 
 	private GoogleMap map;
@@ -42,7 +47,6 @@ public class GMapsActivity extends MapActivity {
 
 	@Override
 	protected boolean isRouteDisplayed() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

@@ -24,18 +24,19 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <permission
         android:name="com.dreamlabs.smarttracker.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.dreamlabs.smarttracker.permission.MAPS_RECEIVE" />
+
     <permission
         android:name="com.dreamlabs.smarttracker.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission 
-        android:name="com.dreamlabs.smarttracker.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.dreamlabs.smarttracker.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <uses-feature
@@ -46,14 +47,12 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme" >
         <uses-library android:name="com.google.android.maps" />
-        
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCI1W6Qm-CEP5qePAww39MvvketvANnxGE" />
-        
 
         <activity
             android:name="com.dreamlabs.smarttracker.MainActivity"
@@ -79,14 +78,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HelpActivity" />
+        <activity android:name="com.dreamlabs.smarttracker.HelpActivity" />
         <activity
-            android:name=".TopicActivity"
+            android:name="com.dreamlabs.smarttracker.TopicActivity"
             android:label="@string/topic_activity_label"
             android:theme="@android:style/Theme.Light" />
-        <activity android:name=".GMapsActivity" />
-        
-        
+        <activity android:name="com.dreamlabs.smarttracker.GMapsActivity" />
     </application>
 
 </manifest>

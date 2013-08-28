@@ -331,6 +331,7 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f06000e;
+        public static final int hello_world=0x7f060029;
         public static final int help_page_intro=0x7f060017;
         public static final int help_page_intro_html=0x7f060018;
         /** 
@@ -346,7 +347,17 @@ containing a value of this type.
         public static final int help_title_section2=0x7f06001c;
         public static final int help_title_section3=0x7f06001f;
         public static final int help_title_section4=0x7f060022;
+        public static final int menu_settings=0x7f06002a;
         public static final int no_help_available=0x7f060015;
+        public static final int pref_send_report=0x7f06002c;
+        public static final int pref_send_report_summary=0x7f06002d;
+        public static final int pref_sync_frequency=0x7f06002e;
+        public static final int pref_sync_frequency_summary=0x7f06002f;
+        public static final int pref_update_setting=0x7f060033;
+        public static final int pref_user_name=0x7f060030;
+        public static final int pref_user_name_summary=0x7f060031;
+        public static final int pref_user_profile=0x7f060032;
+        public static final int title_activity_main=0x7f06002b;
         public static final int topic1_name=0x7f060028;
         public static final int topic_activity_label=0x7f060027;
         public static final int topic_section2=0x7f06001e;

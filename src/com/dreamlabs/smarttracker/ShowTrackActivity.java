@@ -109,12 +109,13 @@ public class ShowTrackActivity extends ListActivity {
 				+ routeName;
 		String[] resluts = processResluts(NetworkUtil.invokeServiceCall(url,
 				true));
-		Toast.makeText(
-				getApplicationContext(),
-				"Retrieved latest location info. Lat=" + resluts[0]
-						+ "Langitude=" + resluts[1], Toast.LENGTH_LONG).show();
+		
 
 		if (resluts[2] != null && resluts.length > 0) {
+			Toast.makeText(
+					getApplicationContext(),
+					"Retrieved latest location info. Lat=" + resluts[0]
+							+ "Langitude=" + resluts[1], Toast.LENGTH_LONG).show();
 			long lastUpdatedTime = Long.parseLong(resluts[2]);
 			long diffInMinutes = (System.currentTimeMillis() - lastUpdatedTime)
 					/ (1000 * 60);
@@ -124,7 +125,6 @@ public class ShowTrackActivity extends ListActivity {
 			if (diffInMinutes > 10) {
 				Builder builder = new AlertDialog.Builder(this);
 				builder.setMessage("Smells stale! The location info is 10 minutes older");
-				//builder.setCancelable(true);
 				builder.setPositiveButton("Fine. Let me see anyways",
 						new OkOnClickListener());
 				AlertDialog dialog = builder.create();
@@ -137,6 +137,9 @@ public class ShowTrackActivity extends ListActivity {
 					showMap();
 				}
 			}
+		} else {
+			Toast.makeText(getApplicationContext(),
+					"Cannot display this location." , Toast.LENGTH_LONG).show();
 		}
 		
 	}
@@ -146,7 +149,7 @@ public class ShowTrackActivity extends ListActivity {
 			Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage("oops! something went wrong. play again");
 			//builder.setCancelable(true);
-			builder.setPositiveButton("Fine. Let me see anyways",
+			builder.setPositiveButton("OK",
 					new OkOnClickListenerDoNothing());
 			AlertDialog dialog = builder.create();
 			dialog.show();
@@ -155,6 +158,7 @@ public class ShowTrackActivity extends ListActivity {
 			startActivity(intent);
 		}
 	}
+	
 
 	/**
 	 * 
@@ -165,9 +169,12 @@ public class ShowTrackActivity extends ListActivity {
 		String[] output = new String[3];
 		if (inputText != null && !inputText.isEmpty()) {
 			String[] ss = inputText.split(":");
-			output[0] = ss[0];
-			output[1] = ss[1];
-			output[2] = ss[2];
+			if(ss.length > 1) {
+				output[0] = ss[0];
+				output[1] = ss[1];
+				output[2] = ss[2];
+			}
+			
 
 		}
 		return output;
