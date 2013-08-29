@@ -12,6 +12,7 @@ public class DBManager extends SQLiteOpenHelper {
 		super(applicationcontext, "smarttracker.db", null, 1);
 	}
 
+
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 
@@ -102,6 +103,10 @@ public class DBManager extends SQLiteOpenHelper {
 			  value = cursor.getString(1);
 		  }
 		return value;   
+	}
+	
+	public String getPMFKey() {
+		return "sample";
 	}
 
 }

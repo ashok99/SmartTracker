@@ -20,6 +20,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.telephony.gsm.SmsManager;
 import android.util.Log;
 import android.view.Menu;
@@ -28,6 +29,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.dreamlabs.smarttracker.net.LocationDataUtil;
+import com.dreamlabs.smarttracker.net.NetworkUtil;
+import com.dreamlabs.smarttracker.persistence.DBManager;
 import com.dreamlabs.smarttracker.security.DataFireWall;
 
 /**
@@ -37,12 +40,12 @@ import com.dreamlabs.smarttracker.security.DataFireWall;
  */
 public class MainActivity extends Activity {
 	private static boolean isBroadcastEnabled;
-	private static boolean isEscortEnabled;
+	public static boolean isEscortEnabled;
 	protected LocationManager locationManager;
 	private SensorManager sensorManager;
 	private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in
 																		// Meters
-	private static final long MINIMUM_TIME_BETWEEN_UPDATES = 100000; // in Milliseconds. Keep it low when we have live track. or else 1 min is good.
+	private static final long MINIMUM_TIME_BETWEEN_UPDATES = 100; // in Milliseconds. Keep it low when we have live track. or else 1 min is good.
 	private long lastUpdate;
 	private static final int SHAKE_THRESHOLD = 2000;
 	final MediaPlayer mMediaPlayer = new MediaPlayer();
@@ -125,6 +128,7 @@ public class MainActivity extends Activity {
 						sensorManager.registerListener(acceleroMeterListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_FASTEST);
 						isEscortEnabled = true;
 						escortBtn.setText("eScort - ON");
+						addDeviceToCloud();
 						isBroadcastEnabled = true;//explicitly broad cast when device is in escort mode
 						LocationDataUtil.setCanBroadCast(true);
 						Toast.makeText(getApplicationContext(),
@@ -134,6 +138,7 @@ public class MainActivity extends Activity {
 						isEscortEnabled = false;
 						sensorManager.unregisterListener(acceleroMeterListener);
 						escortBtn.setText("eScort - OFF");
+						removeDeviceFromCloud();
 						LocationDataUtil.setCanBroadCast(false);
 						isBroadcastEnabled = false;
 						Toast.makeText(getApplicationContext(),
@@ -257,7 +262,7 @@ public class MainActivity extends Activity {
 				new LocationDataUtil().postToServer(
 						Double.toString(location.getLatitude()),
 						Double.toString(location.getLongitude()),
-						getApplicationContext());
+						getApplicationContext(), false);
 			}
 				
 		}
@@ -331,7 +336,14 @@ public class MainActivity extends Activity {
 				}
 
 		private void sendEmergencySignal() {
-			// TODO update track on server with flag
+			if(currentDeviceLocation == null) {
+				LocationManager locMgr = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+				currentDeviceLocation  = locMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+			}
+			new LocationDataUtil().postToServer(
+					Double.toString(currentDeviceLocation.getLatitude()),
+					Double.toString(currentDeviceLocation.getLongitude()),
+					getApplicationContext(), true);
 		}
 
 		private void makeSound(AudioManager audioManager) {
@@ -423,7 +435,6 @@ public class MainActivity extends Activity {
 					if (info[i].getState() == NetworkInfo.State.CONNECTED) {
 						return true;
 					}
-
 		}
 		return false;
 
@@ -437,5 +448,36 @@ public class MainActivity extends Activity {
 			AlertDialog dialog = builder.create();
 			dialog.show();	
 	}
+	
+	private void addDeviceToCloud() {
+		
+		if(currentDeviceLocation == null) {
+			LocationManager locMgr = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+			currentDeviceLocation  = locMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		}
+		
+		new LocationDataUtil().postToServer(
+				Double.toString(currentDeviceLocation.getLatitude()),
+				Double.toString(currentDeviceLocation.getLongitude()),
+				getApplicationContext(), false);
+		
+	}
+	
+	private void removeDeviceFromCloud() {
+		String url = "http://testapp.ashoksurya99.cloudbees.net/rest/escort/" + new DBManager(getApplicationContext()).getPMFKey() +  "/REMOVE";
+		NetworkUtil.invokeServiceCall(url, false);
+	}
+	
+	public String getPhoneNumber() {
+		String phNumbr = "Unknown";
+		try {
+			TelephonyManager tMgr = (TelephonyManager) getApplicationContext()
+					.getSystemService(Context.TELEPHONY_SERVICE);
+			phNumbr = tMgr.getLine1Number();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return phNumbr;
 
+	}
 }
